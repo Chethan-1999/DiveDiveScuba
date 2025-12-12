@@ -6,7 +6,6 @@ import {
   Phone, 
   MessageCircle, 
   Mail, 
-  Clock,
   Instagram,
   Facebook
 } from 'lucide-react';
@@ -35,20 +34,20 @@ const Contact = () => {
       gradient: "from-green-500 to-green-600"
     },
     {
+      icon: Instagram,
+      title: "Instagram",
+      info: "@scuba_netrani_deep_dive",
+      subInfo: "Follow our adventures",
+      action: "https://www.instagram.com/scuba_netrani_deep_dive?igsh=MXJjb3pjMjRycWRtdg==",
+      gradient: "from-pink-500 to-purple-500"
+    },
+    {
       icon: Mail,
       title: "Email Us",
       info: "DeepDiveNetrani@gmail.com",
       subInfo: "Quick Email Response",
       action: "mailto:DeepDiveNetrani@gmail.com",
       gradient: "from-red-500 to-pink-500"
-    },
-    {
-      icon: Clock,
-      title: "Best Time",
-      info: "October - May",
-      subInfo: "Booking starts from OCT 1st",
-      action: null,
-      gradient: "from-orange-400 to-pink-500"
     }
   ];
 
