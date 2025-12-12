@@ -221,25 +221,6 @@ const Contact = () => {
             </motion.div>
           </div>
 
-          {/* Review Section */}
-          <motion.div variants={itemVariants} className="text-center mb-8">
-            <div className="bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/10 rounded-2xl p-6">
-              <h4 className="text-white font-semibold text-xl mb-3">Love Your Diving Experience?</h4>
-              <p className="text-blue-200 mb-4">Help other ocean explorers discover the magic of Netrani Island!</p>
-              <motion.a
-                href="#" // Replace with your actual Google review link once GMB is set up
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-gradient-to-r from-yellow-500 to-orange-500 text-white px-6 py-3 rounded-full font-semibold hover:from-yellow-600 hover:to-orange-600 transition-all duration-300 inline-flex items-center space-x-2"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <span>⭐</span>
-                <span>Leave a Google Review</span>
-              </motion.a>
-            </div>
-          </motion.div>
-
           {/* Social Media */}
           <motion.div variants={itemVariants} className="text-center">
             <h4 className="text-white font-semibold text-lg mb-4">Follow Us</h4>

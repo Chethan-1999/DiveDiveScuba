@@ -92,6 +92,11 @@ select:focus {
   animation: pulse-glow 2s ease-in-out infinite;
 }
 
+/* Text shadow utility for gallery */
+.text-shadow {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
 /* Mobile responsiveness */
 @media (max-width: 640px) {
   .text-5xl {
