@@ -16,6 +16,7 @@ const About = () => {
     { icon: Award, label: 'Certified Divers', value: '5000+' },
     { icon: Users, label: 'Expert Instructors', value: '15+' },
     { icon: Heart, label: 'Happy Customers', value: '98%' },
+    { icon: 'PADI', label: 'PADI Certified', value: 'Certified', isPADI: true },
   ];
 
   const containerVariants = {
@@ -106,19 +107,9 @@ const About = () => {
             variants={itemVariants}
             className="text-4xl sm:text-5xl font-bold text-white mb-6"
           >
-            Scuba Diving in 
-            <span className="bg-gradient-to-r from-cyan-400 to-teal-400 bg-clip-text text-transparent"> Murdeshwar</span>
+            Why Choose
+            <span className="bg-gradient-to-r from-cyan-400 to-teal-400 bg-clip-text text-transparent"> Us?</span>
           </motion.h2>
-          
-          <motion.p
-            variants={itemVariants}
-            className="text-xl text-blue-100 max-w-4xl mx-auto leading-relaxed"
-          >
-            Discover the underwater wonders with scuba diving in Murdeshwar, a paradise for adventure lovers. 
-            Explore vibrant marine life and stunning coral reefs in the crystal-clear Arabian Sea. Perfect for 
-            beginners and experts, this thrilling experience promises unforgettable memories. Dive into the 
-            beauty of Murdeshwar&apos;s waters and create moments to cherish forever!
-          </motion.p>
         </motion.div>
 
         {/* Stats Grid */}
@@ -126,7 +117,7 @@ const About = () => {
           variants={containerVariants}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
-          className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-16"
+          className="grid grid-cols-2 lg:grid-cols-5 gap-6 mb-16"
         >
           {stats.map((stat, index) => (
             <motion.div
@@ -142,9 +133,15 @@ const About = () => {
                 }}
               >
                 <div className="flex justify-center mb-2">
-                  <div className="bg-gradient-to-br from-cyan-400 to-blue-500 p-2 rounded-full">
-                    <stat.icon className="w-5 h-5 text-white" />
-                  </div>
+                  {stat.isPADI ? (
+                    <div className="bg-gradient-to-br from-blue-600 to-blue-800 p-2 rounded-full w-10 h-10 flex items-center justify-center">
+                      <span className="text-white font-bold text-xs">PADI</span>
+                    </div>
+                  ) : (
+                    <div className="bg-gradient-to-br from-cyan-400 to-blue-500 p-2 rounded-full">
+                      <stat.icon className="w-5 h-5 text-white" />
+                    </div>
+                  )}
                 </div>
                 <div className="text-2xl font-bold text-white mb-1">{stat.value}</div>
                 <div className="text-blue-200 text-xs">{stat.label}</div>

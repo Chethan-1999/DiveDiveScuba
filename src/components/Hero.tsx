@@ -57,9 +57,9 @@ const Hero = () => {
             </div>
 
             <p className="text-xl sm:text-2xl text-blue-100 mb-12 max-w-4xl mx-auto leading-relaxed">
-              Experience the underwater paradise of Karnataka&apos;s premier diving destination. 
-              Crystal clear waters, vibrant marine life, and professional guidance await you.
-              Everything you need for the ultimate scuba diving experience at Netrani Island for the best pricing.
+              Discover the underwater paradise of Netrani Island with Karnataka&apos;s premier diving destination. 
+              Experience crystal clear waters, vibrant marine life, and stunning coral reefs with professional guidance. 
+              Perfect for beginners and experts - dive into unforgettable memories at the best pricing!
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">

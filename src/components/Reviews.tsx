@@ -14,9 +14,11 @@ const Reviews = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [isClient, setIsClient] = useState(false);
 
   // Check if mobile on component mount
   useEffect(() => {
+    setIsClient(true);
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768);
     };
@@ -197,7 +199,7 @@ const Reviews = () => {
         </motion.div>
 
         {/* Reviews Section */}
-        {isMobile ? (
+        {isClient && isMobile ? (
           /* Mobile Carousel View */
           <div className="relative max-w-md mx-auto">
             <div 

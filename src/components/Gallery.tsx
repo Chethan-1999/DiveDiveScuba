@@ -15,9 +15,11 @@ const Gallery = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [isClient, setIsClient] = useState(false);
 
   // Check if mobile on component mount
   useEffect(() => {
+    setIsClient(true);
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768);
     };
@@ -31,48 +33,51 @@ const Gallery = () => {
   const images = [
     {
       src: '/images/gallary/Image (1).jpg',
-      alt: 'Scuba diving at Netrani Island',
-      category: 'Diving'
+      alt: 'Scuba diving at Netrani Island'
     },
     {
-      src: '/images/gallary/Image (2).jpg',
-      alt: 'Underwater marine life at Netrani',
-      category: 'Marine Life'
+      src: '/images/gallary/Image (2).jpg?v=1765800205989',
+      alt: 'Underwater marine life at Netrani'
     },
     {
       src: '/images/gallary/Image (3).jpg',
-      alt: 'Crystal clear waters of Netrani Island',
-      category: 'Diving'
+      alt: 'Crystal clear waters of Netrani Island'
     },
     {
       src: '/images/gallary/Image (4).jpg',
-      alt: 'Professional diving experience',
-      category: 'Diving'
+      alt: 'Professional diving experience'
     },
     {
       src: '/images/gallary/Image (5).jpg',
-      alt: 'Coral reef exploration',
-      category: 'Coral Reef'
+      alt: 'Coral reef exploration'
     },
     {
       src: '/images/gallary/Image (6).jpg',
-      alt: 'Netrani Island underwater adventure',
-      category: 'Marine Life'
+      alt: 'Netrani Island underwater adventure'
     },
     {
       src: '/images/gallary/Image (7).jpg',
-      alt: 'Deep dive Netrani experience',
-      category: 'Diving'
+      alt: 'Deep dive Netrani experience'
     },
     {
       src: '/images/gallary/Image (8).jpg',
-      alt: 'Vibrant underwater world',
-      category: 'Marine Life'
+      alt: 'Vibrant underwater world'
     },
     {
       src: '/images/gallary/Image (9).jpg',
-      alt: 'Netrani Island scuba adventure',
-      category: 'Coral Reef'
+      alt: 'Netrani Island scuba adventure'
+    },
+    {
+      src: '/images/gallary/Image.jpg',
+      alt: 'Amazing scuba diving experience at Netrani'
+    },
+    {
+      src: '/images/gallary/Img.jpg',
+      alt: 'Beautiful underwater photography at Netrani Island'
+    },
+    {
+      src: '/images/gallary/img5.jpg',
+      alt: 'Spectacular underwater scenery at Netrani Island'
     }
   ];
 
@@ -162,7 +167,7 @@ const Gallery = () => {
         </motion.div>
 
         {/* Image Gallery */}
-        {isMobile ? (
+        {isClient && isMobile ? (
           /* Mobile Carousel View */
           <div className="relative">
             <div 
@@ -193,16 +198,6 @@ const Gallery = () => {
                   
                   {/* Gradient Overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                  
-                  {/* Category Badge */}
-                  <motion.div 
-                    initial={{ opacity: 0, y: -20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.3 }}
-                    className="absolute top-6 left-6 bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg"
-                  >
-                    {images[currentIndex].category}
-                  </motion.div>
                   
                   {/* Content */}
                   <motion.div 
@@ -300,11 +295,6 @@ const Gallery = () => {
                   
                   {/* Overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  
-                  {/* Category Badge */}
-                  <div className="absolute top-4 left-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-3 py-1 rounded-full text-sm font-semibold">
-                    {image.category}
-                  </div>
                   
                   {/* Content */}
                   <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">

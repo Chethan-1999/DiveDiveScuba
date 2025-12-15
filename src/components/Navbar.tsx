@@ -1,10 +1,21 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import { Phone, MessageCircle } from 'lucide-react';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Phone, MessageCircle, Menu, X } from 'lucide-react';
 import Image from 'next/image';
 
 const Navbar = () => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+  };
+
   return (
     <motion.nav
       initial={{ y: -100, opacity: 0 }}
@@ -53,31 +64,137 @@ const Navbar = () => {
             </a>
           </div>
 
-          {/* Contact Buttons */}
+          {/* Contact Buttons & Mobile Menu */}
           <div className="flex items-center space-x-3">
-            <motion.a
-              href="tel:6360788946"
-              className="bg-cyan-500 hover:bg-cyan-600 text-white px-4 py-2 rounded-full flex items-center space-x-2 transition-all duration-300"
+            {/* Desktop Contact Buttons */}
+            <div className="hidden sm:flex items-center space-x-3">
+              <motion.a
+                href="tel:6360788946"
+                className="bg-cyan-500 hover:bg-cyan-600 text-white px-4 py-2 rounded-full flex items-center space-x-2 transition-all duration-300"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Phone className="w-4 h-4" />
+                <span>Call Now</span>
+              </motion.a>
+              
+              <motion.a
+                href="https://wa.me/916360788946"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-full flex items-center space-x-2 transition-all duration-300"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <MessageCircle className="w-4 h-4" />
+                <span>WhatsApp</span>
+              </motion.a>
+            </div>
+
+            {/* Mobile Menu Button */}
+            <motion.button
+              onClick={toggleMobileMenu}
+              className="md:hidden bg-cyan-500 hover:bg-cyan-600 text-white p-2 rounded-full transition-all duration-300"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <Phone className="w-4 h-4" />
-              <span className="hidden sm:inline">Call Now</span>
-            </motion.a>
-            
-            <motion.a
-              href="https://wa.me/916360788946"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-full flex items-center space-x-2 transition-all duration-300"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <MessageCircle className="w-4 h-4" />
-              <span className="hidden sm:inline">WhatsApp</span>
-            </motion.a>
+              {isMobileMenuOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
+            </motion.button>
           </div>
         </div>
+
+        {/* Mobile Menu Overlay */}
+        <AnimatePresence>
+          {isMobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              className="md:hidden bg-blue-900/95 backdrop-blur-lg border-t border-white/10"
+            >
+              <div className="px-4 py-6 space-y-4">
+                {/* Mobile Navigation Links */}
+                <motion.a
+                  href="#home"
+                  onClick={closeMobileMenu}
+                  className="block text-white hover:text-cyan-400 transition-colors py-2 text-lg font-medium"
+                  whileHover={{ x: 10 }}
+                >
+                  Home
+                </motion.a>
+                <motion.a
+                  href="#about"
+                  onClick={closeMobileMenu}
+                  className="block text-white hover:text-cyan-400 transition-colors py-2 text-lg font-medium"
+                  whileHover={{ x: 10 }}
+                >
+                  About
+                </motion.a>
+                <motion.a
+                  href="#activities"
+                  onClick={closeMobileMenu}
+                  className="block text-white hover:text-cyan-400 transition-colors py-2 text-lg font-medium"
+                  whileHover={{ x: 10 }}
+                >
+                  Activities
+                </motion.a>
+                <motion.a
+                  href="#gallery"
+                  onClick={closeMobileMenu}
+                  className="block text-white hover:text-cyan-400 transition-colors py-2 text-lg font-medium"
+                  whileHover={{ x: 10 }}
+                >
+                  Gallery
+                </motion.a>
+                <motion.a
+                  href="#reviews"
+                  onClick={closeMobileMenu}
+                  className="block text-white hover:text-cyan-400 transition-colors py-2 text-lg font-medium"
+                  whileHover={{ x: 10 }}
+                >
+                  Reviews
+                </motion.a>
+                <motion.a
+                  href="#contact"
+                  onClick={closeMobileMenu}
+                  className="block text-white hover:text-cyan-400 transition-colors py-2 text-lg font-medium"
+                  whileHover={{ x: 10 }}
+                >
+                  Contact
+                </motion.a>
+
+                {/* Mobile Contact Buttons */}
+                <div className="pt-4 space-y-3">
+                  <motion.a
+                    href="tel:6360788946"
+                    className="bg-cyan-500 hover:bg-cyan-600 text-white px-6 py-3 rounded-full flex items-center justify-center space-x-2 transition-all duration-300"
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    <Phone className="w-5 h-5" />
+                    <span>Call: 6360788946</span>
+                  </motion.a>
+                  
+                  <motion.a
+                    href="https://wa.me/916360788946"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-full flex items-center justify-center space-x-2 transition-all duration-300"
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    <MessageCircle className="w-5 h-5" />
+                    <span>WhatsApp Now</span>
+                  </motion.a>
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </motion.nav>
   );
