@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Deep Dive Netrani - Premier Scuba Diving at Netrani Island",
     description: "Discover the underwater paradise of Netrani Island with professional scuba diving services. Crystal clear waters, vibrant marine life, and expert guidance.",
-    url: "https://deepdivenatrani.com",
+    url: "https://deepdivenetrani.in",
     siteName: "Deep Dive Netrani",
     locale: "en_IN",
     type: "website",
