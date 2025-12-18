@@ -32,7 +32,7 @@ const Navbar = () => {
           >
             <div className="relative w-12 h-12">
               <Image
-                src="/images/logo.jpg"
+                src="/images/logo.jpg?v=2025121801"
                 alt="Deep Dive Netrani Logo"
                 fill
                 className="object-contain rounded-full"

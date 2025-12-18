@@ -187,9 +187,6 @@ const Activities = () => {
               >
                 {/* Category Header */}
                 <div className="text-center mb-4">
-                  <div className={`inline-flex items-center justify-center w-10 h-10 bg-gradient-to-r ${category.gradient} rounded-lg mb-2`}>
-                    <div className="w-5 h-5 bg-white rounded-full"></div>
-                  </div>
                   <h4 className="text-lg font-semibold text-white">{category.category}</h4>
                 </div>
 

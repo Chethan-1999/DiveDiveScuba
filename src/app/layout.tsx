@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/images/logo.jpg",
+        url: "/images/logo.jpg?v=2025121801",
         width: 1200,
         height: 630,
         alt: "Deep Dive Netrani - Scuba Diving at Netrani Island",
